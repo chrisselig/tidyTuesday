@@ -71,7 +71,7 @@ combined %>%
         x = 'Avg Length of Eruptions (in days)',
         y = 'Number of Eruptions',
         title = 'Number of Eruptions per Average Length of Eruptions',
-        subtitle = 'Shows Volcanos with Average Length of Eruptions between 5 and 10 Days',
+        subtitle = 'Shows Volcanoes with Average Length of Eruptions between 5 and 10 Days',
         caption = 'Data: https://volcano.si.edu/ | @ChrisSeligYYC'
     ) +
     geom_text_repel(aes(color = number_of_eruptions),

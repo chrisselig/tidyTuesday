@@ -55,6 +55,12 @@ combined <- volcano %>%
 # Plotting
 combined %>%
     ggplot(aes(x = avg_length_of_eruptions, y = number_of_eruptions, label = volcano_name)) +
+    # add horizontal lines
+    geom_hline(yintercept = 5, linetype = 'dotted', color = '#dadada') +
+    geom_hline(yintercept = 10, linetype = 'dotted', color = '#dadada') +
+    geom_hline(yintercept = 20, linetype = 'dotted', color = '#dadada') +
+    geom_hline(yintercept = 30, linetype = 'dotted', color = '#dadada') +
+   # add points
     geom_point(aes(size = number_of_eruptions, color = number_of_eruptions)) +
     geom_curve(
         data = combined %>% filter(avg_length_of_eruptions >= 8),
@@ -81,6 +87,7 @@ combined %>%
         curvature = -1,
         angle = 25
     ) +
+    scale_y_continuous(breaks=c(5,10,20,30))+
     scale_colour_gradient2(low = "#F6BDC0", mid = '#F07470', high = "#CF1020") +
     # labels
     labs(
@@ -90,7 +97,6 @@ combined %>%
         subtitle = 'Shows Volcanoes with Average Length of Eruptions between 5 and 10 Days',
         caption = 'Data: https://volcano.si.edu/ | @ChrisSeligYYC'
     ) +
-    # Labels
     geom_label_repel(
         aes(color = number_of_eruptions),
         box.padding = unit(0.35, "lines"),
@@ -111,7 +117,8 @@ combined %>%
         legend.position = "none",
         # axis formatting
         axis.ticks.y = element_blank(),
-        axis.text.y  = element_blank(),
+        #axis.text.y  = element_blank(),
+        axis.text.y = element_text(color="#dadada", size=8),
         # title/subtitle/caption formatting
         axis.title = element_text(colour = "#F5F5F5"),
         plot.title = element_text(

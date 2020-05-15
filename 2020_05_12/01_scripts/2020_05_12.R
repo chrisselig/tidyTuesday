@@ -50,7 +50,7 @@ combined <- volcano %>%
     filter(!is.na(number_of_eruptions)) %>%
     # remove really large values
     filter(avg_length_of_eruptions > 4 &
-               avg_length_of_eruptions <= 10)
+               avg_length_of_eruptions <= 10 & number_of_eruptions >1)
 
 # Plotting
 combined %>%
@@ -90,9 +90,7 @@ combined %>%
         subtitle = 'Shows Volcanoes with Average Length of Eruptions between 5 and 10 Days',
         caption = 'Data: https://volcano.si.edu/ | @ChrisSeligYYC'
     ) +
-    # geom_text_repel(aes(color = number_of_eruptions),
-    #                 segment.colour = NA
-    #                 ) +
+    # Labels
     geom_label_repel(
         aes(color = number_of_eruptions),
         box.padding = unit(0.35, "lines"),

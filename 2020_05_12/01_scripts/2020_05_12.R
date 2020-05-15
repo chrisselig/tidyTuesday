@@ -76,7 +76,7 @@ combined %>%
             y = 0,
             xend = avg_length_of_eruptions,
             yend = number_of_eruptions,
-            color = number_of_eruptions / 6
+            color = number_of_eruptions
         ),
         curvature = -1,
         angle = 25
